@@ -27,9 +27,9 @@ function Login() {
         <h1>Login to admin dashboard</h1>
         <form onSubmit={handleLogin}>
             <br />
-            <label>Email:</label>
+            <label>Email: </label>
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} /> <br />
-            <label>Password:</label>
+            <label>Password: </label>
             <input type={"password"} value={password} onChange={e => setPassword(e.target.value)} />
             <br />
             <button type="submit">Login</button>
