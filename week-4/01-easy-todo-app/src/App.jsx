@@ -87,8 +87,7 @@ function Todo(props) {
     // Add a delete button here so user can delete a TODO.
     return (
         <div>
-            {props.title} &nbsp;
-            {props.description}
+            <b>{props.title}</b> - {props.description}
         </div>
     );
 }
