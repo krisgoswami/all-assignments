@@ -1,23 +1,23 @@
 import React from "react";
-// import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 /// File is incomplete. You need to add input boxes to take input for users to login.
 function Login() {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    // const history = useHistory();
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:3000/admin/login");
+            const response = await axios.post("http://localhost:3000/admin/login", {
+                email,
+                password
+            });
             const { token } = response.data;
 
             localStorage.setItem('token', token);
 
-            // history.push('/');
         } catch (err) {
             console.error(err);
         }

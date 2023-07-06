@@ -12,11 +12,12 @@ function Register() {
         try {
             const response = await axios.post("http://localhost:3000/admin/signup", {
                 email,
-                password,
+                password
             });
             const { token } = response.data;
 
-            localStorage.getItem('token', token);
+            localStorage.setItem('token', token);
+
         } catch (err) {
             console.error(err);
         }
