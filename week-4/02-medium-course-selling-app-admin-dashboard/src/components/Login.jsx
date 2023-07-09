@@ -3,7 +3,7 @@ import axios from 'axios';
 
 /// File is incomplete. You need to add input boxes to take input for users to login.
 function Login() {
-    const [email, setEmail] = React.useState("");
+    const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
 
     const handleLogin = async (e) => {
@@ -11,15 +11,23 @@ function Login() {
 
         try {
             const response = await axios.post("http://localhost:3000/admin/login", {
-                email,
+                username,
                 password
+            },{
+                headers: {
+                    username: username,
+                    password: password      
+                }
             });
             const { token } = response.data;
 
             localStorage.setItem('token', token);
+            console.log(username,password);
+            console.log(token);
 
         } catch (err) {
             console.error(err);
+            console.log(username,password);
         }
     }
 
@@ -28,7 +36,7 @@ function Login() {
         <form onSubmit={handleLogin}>
             <br />
             <label>Email: </label>
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} /> <br />
+            <input type="username" value={username} onChange={e => setUsername(e.target.value)} /> <br />
             <label>Password: </label>
             <input type={"password"} value={password} onChange={e => setPassword(e.target.value)} />
             <br />

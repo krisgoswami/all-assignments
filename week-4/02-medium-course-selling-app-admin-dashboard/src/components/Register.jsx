@@ -1,9 +1,10 @@
+import Button from '@mui/material/Button';
 import axios from "axios";
 import React from "react";
 
 /// File is incomplete. You need to add input boxes to take input for users to register.
 function Register() {
-    const [email, setEmail] = React.useState("");
+    const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
 
     const handleSignUp = async (e) => {
@@ -11,15 +12,22 @@ function Register() {
 
         try {
             const response = await axios.post("http://localhost:3000/admin/signup", {
-                email,
+                username,
                 password
-            });
+            },{
+                headers: {                                                                                                                  
+                    "Content-Type": 'application/json'
+                }
+            });                                                                                                                                             
             const { token } = response.data;
 
             localStorage.setItem('token', token);
+            console.log(username,password);
+            console.log(token);
 
         } catch (err) {
             console.error(err);
+            console.log(username,password);
         }
     }
 
@@ -27,11 +35,11 @@ function Register() {
         <h1>Register to the website</h1>
         <form onSubmit={handleSignUp}>
             <label>Email: </label>
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} /> <br />
+            <input type="username" value={username} onChange={e => setUsername(e.target.value)} /> <br />
             <label>Password: </label>
             <input type={"password"} value={password} onChange={e => setPassword(e.target.value)} />
             <br />
-            <button type="submit">Sign Up</button>
+            <Button variant="contained">Sign Up</Button>
             <br />
             Already a user? <a href="/login">Login</a>
         </form>
