@@ -40,7 +40,7 @@ function Register() {
 				display: 'flex',
 				justifyContent: 'center'
 			}}>
-				<Typography variant='h4'>Register to the website</Typography>
+				<Typography variant='h6'>Register to the website</Typography>
 			</div>
 			<div style={{
 				display: "flex",
