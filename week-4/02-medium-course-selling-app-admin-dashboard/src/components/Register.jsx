@@ -14,36 +14,39 @@ function Register() {
             const response = await axios.post("http://localhost:3000/admin/signup", {
                 username,
                 password
-            },{
-                headers: {                                                                                                                  
+            }, {
+                headers: {
                     "Content-Type": 'application/json'
                 }
-            });                                                                                                                                             
+            });
             const { token } = response.data;
 
             localStorage.setItem('token', token);
-            console.log(username,password);
+            console.log(username, password);
             console.log(token);
 
         } catch (err) {
             console.error(err);
-            console.log(username,password);
+            console.log(username, password);
         }
     }
 
-    return <div>
-        <h1>Register to the website</h1>
-        <form onSubmit={handleSignUp}>
-            <label>Email: </label>
-            <input type="username" value={username} onChange={e => setUsername(e.target.value)} /> <br />
-            <label>Password: </label>
-            <input type={"password"} value={password} onChange={e => setPassword(e.target.value)} />
-            <br />
-            <Button variant="contained">Sign Up</Button>
-            <br />
-            Already a user? <a href="/login">Login</a>
-        </form>
-    </div>
+    return (
+        <div>
+            <h1>Register to the website</h1>
+            <form onSubmit={handleSignUp}>
+                <label>Email: </label>
+                <TextField variant="outlined"></TextField>
+                <input type="username" value={username} onChange={e => setUsername(e.target.value)} /> <br />
+                <label>Password: </label>
+                <input type={"password"} value={password} onChange={e => setPassword(e.target.value)} />
+                <br />
+                <Button variant="contained">Sign Up</Button>
+                <br />
+                Already a user? <a href="/login">Login</a>
+            </form>
+        </div>
+    )
 }
 
 export default Register;
