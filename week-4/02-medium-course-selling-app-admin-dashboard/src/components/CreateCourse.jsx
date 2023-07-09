@@ -88,7 +88,7 @@ function CreateCourse() {
                         style={{ width: 200, marginBottom: 10 }}
                         value={published}
                         label="Published"
-                        onChange={e => setImageLink(e.target.value)}
+                        onChange={e => setPublished(e.target.value)}
                     >
                         <MenuItem value={true}>Yes</MenuItem>
                         <MenuItem value={false}>No</MenuItem>
