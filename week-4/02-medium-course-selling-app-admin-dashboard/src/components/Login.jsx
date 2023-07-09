@@ -67,11 +67,11 @@ function Login() {
                             variant="outlined"
                             label="password"
                             type='password'
-                            onChange={e => setUsername(e.target.value)}
-                        ></TextField>
+                            onChange={e => setPassword(e.target.value)}
+                        />
                         <br />
                         <br />
-                        <Button variant="contained" size='large'>Sign Up</Button>
+                        <Button variant="contained" size='large' type='submit'>Sign Up</Button>
                         <br />
                         <br />
                         Don't have an account? <a href="/register">Sign Up</a>

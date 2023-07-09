@@ -56,7 +56,7 @@ function Register() {
 						<TextField
 							fullWidth={true}
 							variant="outlined"
-							label="email"
+							label="username"
 							onChange={e => setUsername(e.target.value)}
 						/>
 						<br />
@@ -66,11 +66,11 @@ function Register() {
 							variant="outlined"
 							label="password"
 							type='password'
-							onChange={e => setUsername(e.target.value)}
+							onChange={e => setPassword(e.target.value)}
 						></TextField>
 						<br />
 						<br />
-						<Button variant="contained" size='large'>Sign Up</Button>
+						<Button variant="contained" size='large' type='submit'>Sign Up</Button>
 						<br />
 						<br />
 						Already a user? <a href="/login">Login</a>
