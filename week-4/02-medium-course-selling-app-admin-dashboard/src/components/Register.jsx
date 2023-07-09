@@ -1,52 +1,84 @@
+import { Card, TextField, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import axios from "axios";
 import React from "react";
 
 /// File is incomplete. You need to add input boxes to take input for users to register.
 function Register() {
-    const [username, setUsername] = React.useState("");
-    const [password, setPassword] = React.useState("");
+	const [username, setUsername] = React.useState("");
+	const [password, setPassword] = React.useState("");
 
-    const handleSignUp = async (e) => {
-        e.preventDefault();
+	const handleSignUp = async (e) => {
+		e.preventDefault();
 
-        try {
-            const response = await axios.post("http://localhost:3000/admin/signup", {
-                username,
-                password
-            }, {
-                headers: {
-                    "Content-Type": 'application/json'
-                }
-            });
-            const { token } = response.data;
+		try {
+			const response = await axios.post("http://localhost:3000/admin/signup", {
+				username,
+				password
+			}, {
+				headers: {
+					"Content-Type": 'application/json'
+				}
+			});
+			const { token } = response.data;
 
-            localStorage.setItem('token', token);
-            console.log(username, password);
-            console.log(token);
+			localStorage.setItem('token', token);
+			console.log(username, password);
+			console.log(token);
 
-        } catch (err) {
-            console.error(err);
-            console.log(username, password);
-        }
-    }
+		} catch (err) {
+			console.error(err);
+			console.log(username, password);
+		}
+	}
 
-    return (
-        <div>
-            <h1>Register to the website</h1>
-            <form onSubmit={handleSignUp}>
-                <label>Email: </label>
-                <TextField variant="outlined"></TextField>
-                <input type="username" value={username} onChange={e => setUsername(e.target.value)} /> <br />
-                <label>Password: </label>
-                <input type={"password"} value={password} onChange={e => setPassword(e.target.value)} />
-                <br />
-                <Button variant="contained">Sign Up</Button>
-                <br />
-                Already a user? <a href="/login">Login</a>
-            </form>
-        </div>
-    )
+	return (
+		<div>
+			<div style={{
+				paddingTop: 150,
+				marginBottom: 10,
+				display: 'flex',
+				justifyContent: 'center'
+			}}>
+				<Typography variant='h4'>Register to the website</Typography>
+			</div>
+			<div style={{
+				display: "flex",
+				justifyContent: "center"
+			}}>
+				<form onSubmit={handleSignUp}>
+					<Card
+						variant='outlined'
+						style={{
+							width: 400,
+							padding: 20
+						}}>
+						<TextField
+							fullWidth={true}
+							variant="outlined"
+							label="email"
+							onChange={e => setUsername(e.target.value)}
+						/>
+						<br />
+						<br />
+						<TextField
+							fullWidth={true}
+							variant="outlined"
+							label="password"
+							type='password'
+							onChange={e => setUsername(e.target.value)}
+						></TextField>
+						<br />
+						<br />
+						<Button variant="contained" size='large'>Sign Up</Button>
+						<br />
+						<br />
+						Already a user? <a href="/login">Login</a>
+					</Card>
+				</form>
+			</div>
+		</div>
+	)
 }
 
 export default Register;
