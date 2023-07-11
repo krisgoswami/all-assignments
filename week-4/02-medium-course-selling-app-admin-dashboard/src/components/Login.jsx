@@ -22,6 +22,7 @@ function Login() {
                 }
             });
             const { token } = response.data;
+            window.location = "/"
 
             localStorage.setItem('token', token);
             console.log(username, password);
@@ -71,7 +72,7 @@ function Login() {
                         />
                         <br />
                         <br />
-                        <Button variant="contained" size='large' type='submit'>Sign Up</Button>
+                        <Button variant="contained" size='large' type='submit'>Login</Button>
                         <br />
                         <br />
                         Don't have an account? <a href="/register">Sign Up</a>
