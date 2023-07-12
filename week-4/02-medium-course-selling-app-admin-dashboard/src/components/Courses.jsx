@@ -15,7 +15,7 @@ export default function Courses() {
             res.json().then(callback2);
         }
         fetch("http://localhost:3000/admin/courses", {
-            method: "GET",
+            method: "GET",            
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem('token')
             }
