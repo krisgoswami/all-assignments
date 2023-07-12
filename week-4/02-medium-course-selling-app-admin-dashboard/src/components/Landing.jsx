@@ -12,6 +12,8 @@ function Landing() {
         <a href="/login">Login</a>
         <br/>
         <a href="/addcourse">Add Course</a>
+        <br/>
+        <a href="/courses">Courses</a>
     </div>
 }
 

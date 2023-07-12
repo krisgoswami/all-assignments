@@ -70,7 +70,10 @@ function Register() {
 						></TextField>
 						<br />
 						<br />
-						<Button variant="contained" size='large' type='submit'>Sign Up</Button>
+						<Button variant="contained" size='large' type='submit' onClick={() => {
+							alert("Signed up successfully!");
+							window.location = "/login";
+						}}>Sign Up</Button>
 						<br />
 						<br />
 						Already a user? <a href="/login">Login</a>

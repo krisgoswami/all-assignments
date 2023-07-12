@@ -70,6 +70,7 @@ export default function AddCourse() {
                                 function callback2(data) {
                                     // console.log(data);
                                     alert("Course added!");
+                                    window.location ="/courses";
                                 }
                                 function callback1(res) {
                                     res.json().then(callback2);
