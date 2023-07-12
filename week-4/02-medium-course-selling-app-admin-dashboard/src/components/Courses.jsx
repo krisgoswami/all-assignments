@@ -1,4 +1,4 @@
-import { Card, Typography } from "@mui/material";
+import { Button, Card, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import React from "react";
 
@@ -24,7 +24,7 @@ export default function Courses() {
     return (
         <div>
             <a href="/addcourse">Add Course</a>
-            <div style={{display: "flex", flexWrap:'wrap'}}>
+            <div style={{ display: "flex", flexWrap: 'wrap' }}>
                 {courses.map(course => {
                     return <Course courseprop={course} />
                 })}
@@ -33,7 +33,7 @@ export default function Courses() {
     )
 }
 
-function Course(props) {
+export function Course(props) {
     return <Card variant='outlined'
         style={{
             margin: 10,
@@ -45,6 +45,9 @@ function Course(props) {
         <img src={props.courseprop.imageLink} style={{ width: 300 }}></img>
         <Typography variant="h4">{props.courseprop.title}</Typography>
         <Typography variant="h6">{props.courseprop.description}</Typography>
-        <Typography variant="h6">{props.courseprop.price}</Typography>
+        <Typography variant="h6">{props.courseprop.price}</Typography><br />
+        <Button variant="contained" onClick={() => {
+            window.location = `/courses/${props.courseprop.id}`
+        }}>Update</Button>
     </Card>
 }
